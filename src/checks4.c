@@ -35,7 +35,7 @@ int		modificator_is_real(char m)
 {
 	if (m == 'c' || m == 'C' || m == 's' || m == 'S' || m == 'o'
 		 || m == 'O' || m == 'd' || m == 'D' || m == 'x' || m == 'X'
-		  || m == 'u' || m == 'U' || m == 'p')
+		  || m == 'u' || m == 'U' || m == 'p' || m == 'i')
 		return (1);
 	return (0);
 }
