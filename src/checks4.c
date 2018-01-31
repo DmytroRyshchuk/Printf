@@ -31,6 +31,15 @@ int		width(char *s)
 	return (0);
 }
 
+int		modificator_is_real(char m)
+{
+	if (m == 'c' || m == 'C' || m == 's' || m == 'S' || m == 'o'
+		 || m == 'O' || m == 'd' || m == 'D' || m == 'x' || m == 'X'
+		  || m == 'u' || m == 'U' || m == 'p')
+		return (1);
+	return (0);
+}
+
 int		work_with_width(char *s, int i, int num, int decimal)
 {
 	int		is_real;
@@ -39,6 +48,8 @@ int		work_with_width(char *s, int i, int num, int decimal)
 	i = -1;
 	while (s[++i])
 	{
+		if (modificator_is_real(s[i]) == 1)
+			return (num);
 		if ((s[i] >= '0' && s[i] <= '9') || s[i] == '.')
 		{
 			if (s[i] == '.')
@@ -54,9 +65,7 @@ int		work_with_width(char *s, int i, int num, int decimal)
 			is_real = 1;
 		}
 	}
-	if (is_real == 0)
-		return (num);
-	return (0);
+	return ((is_real == 0) ? num : 0);
 }
 
 char	*check_flags(char *f)
