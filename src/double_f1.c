@@ -95,6 +95,14 @@ int		double_f2(t_printf_s *s_p, char *st, int i)
 
 int		double_f3_0(t_printf_s *s_p, char *st, int i, char *f)
 {
+	if (s_p->flags[i] == ' ')
+		if (width(s_p->f) < precision(s_p->f) &&
+			precision(s_p->f) > ft_strlen(st))
+			fill_by_sign(s_p, ' ');
+	if (s_p->flags[i] == '0')
+		if (width(s_p->f) < precision(s_p->f) &&
+			precision(s_p->f) > ft_strlen(st))
+			fill_by_sign(s_p, '0');
 	if (s_p->flags[i] == '-')
 	{
 		if (precision(f) > ft_strlen(st) && s_p->bp == 0)
