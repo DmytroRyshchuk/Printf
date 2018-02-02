@@ -12,6 +12,15 @@
 
 #include "libft.h"
 
+int		modificator_is_real(char m)
+{
+	if (m == 'c' || m == 'C' || m == 's' || m == 'S' || m == 'o'
+		 || m == 'O' || m == 'd' || m == 'D' || m == 'x' || m == 'X'
+		  || m == 'u' || m == 'U' || m == 'p' || m == 'i')
+		return (1);
+	return (0);
+}
+
 int		width(char *s)
 {
 	int		i;
@@ -24,19 +33,14 @@ int		width(char *s)
 	num = 0;
 	decimal = 0;
 	while (s[++i])
+	{
+		if (modificator_is_real(s[i]) == 1)
+			return (num);
 		if (s[i - 1] >= '0' && s[i - 1] <= '9')
 			yes = 1;
+	}
 	if (yes == 1)
 		return (work_with_width(s, i, num, decimal));
-	return (0);
-}
-
-int		modificator_is_real(char m)
-{
-	if (m == 'c' || m == 'C' || m == 's' || m == 'S' || m == 'o'
-		 || m == 'O' || m == 'd' || m == 'D' || m == 'x' || m == 'X'
-		  || m == 'u' || m == 'U' || m == 'p' || m == 'i')
-		return (1);
 	return (0);
 }
 
