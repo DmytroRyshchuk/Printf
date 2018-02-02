@@ -33,12 +33,8 @@ int		width(char *s)
 	num = 0;
 	decimal = 0;
 	while (s[++i])
-	{
-		if (modificator_is_real(s[i]) == 1)
-			return (num);
 		if (s[i - 1] >= '0' && s[i - 1] <= '9')
 			yes = 1;
-	}
 	if (yes == 1)
 		return (work_with_width(s, i, num, decimal));
 	return (0);
@@ -54,6 +50,8 @@ int		work_with_width(char *s, int i, int num, int decimal)
 	{
 		if (modificator_is_real(s[i]) == 1)
 			return (num);
+		if (s[i] == '%')
+			return (0);
 		if ((s[i] >= '0' && s[i] <= '9') || s[i] == '.')
 		{
 			if (s[i] == '.')
@@ -65,8 +63,8 @@ int		work_with_width(char *s, int i, int num, int decimal)
 		}
 		if (is_width_real(s[i]) == 1 && is_real == 0)
 		{
-			break ;
 			is_real = 1;
+			break ;
 		}
 	}
 	return ((is_real == 0) ? num : 0);
