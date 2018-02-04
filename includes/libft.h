@@ -32,7 +32,7 @@ typedef	struct		s_printf_s
 	int				leng_used;
 	int				second_time;
 	char			*st;
-	wchar_t			*st_wc;
+	int				*st_wc;
 	char			*temp_st;
 	char			*flags;
 	char			*pr_t;

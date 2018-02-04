@@ -15,12 +15,12 @@
 void	unicode_str_result(va_list ap, char *f, t_printf_s *s_p)
 {
 	int			i;
-	wchar_t		*st;
+	int			*st;
 
 	s_p->leng_p = 0;
 	s_p->w_f = width(f);
 	s_p->p_f = precision(f);
-	st = va_arg(ap, wchar_t*);
+	st = va_arg(ap, int *);
 	s_p->st_wc = st;
 	i = -1;
 	if (st == NULL)

@@ -39,10 +39,10 @@ int		uni__char_1(t_printf_s *s_p, unsigned int ch, int i)
 
 int		unic_char(va_list ap, char *f, t_printf_s *s_p)
 {
-	unsigned int	ch;
-	int				i;
+	int		ch;
+	int		i;
 
-	ch = va_arg(ap, unsigned int);
+	ch = va_arg(ap, int);
 	s_p->leng_p = 0;
 	s_p->p_f = precision(f);
 	s_p->w_f = width(f);
