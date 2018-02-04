@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		minus_and_plus_flags(char *s)
+int			minus_and_plus_flags(char *s)
 {
 	int		i;
 	int		m;
@@ -34,7 +34,7 @@ int		minus_and_plus_flags(char *s)
 	return (0);
 }
 
-int		check_dot_full(char *s)
+int			check_dot_full(char *s)
 {
 	int		i;
 	int		d;
@@ -51,7 +51,7 @@ int		check_dot_full(char *s)
 	return (0);
 }
 
-int		double_f1(t_printf_s *s_p, char *f, char *st)
+int			double_f1(t_printf_s *s_p, char *f, char *st)
 {
 	if (minus_and_plus_flags(s_p->flags) == 1 && check_dot_full(f) == 0)
 	{
@@ -67,7 +67,7 @@ int		double_f1(t_printf_s *s_p, char *f, char *st)
 	return (0);
 }
 
-int		double_f2(t_printf_s *s_p, char *st, int i)
+int			double_f2(t_printf_s *s_p, char *st, int i)
 {
 	int		k;
 
@@ -88,35 +88,6 @@ int		double_f2(t_printf_s *s_p, char *st, int i)
 		{
 			fill_by_sign(s_p, ' ');
 			return (1);
-		}
-	}
-	return (0);
-}
-
-int		double_f3_0(t_printf_s *s_p, char *st, int i, char *f)
-{
-	if (s_p->flags[i] == ' ')
-		if (width(s_p->f) < precision(s_p->f) &&
-			precision(s_p->f) > ft_strlen(st))
-			fill_by_sign(s_p, ' ');
-	if (s_p->flags[i] == '0')
-		if (width(s_p->f) < precision(s_p->f) &&
-			precision(s_p->f) > ft_strlen(st))
-			fill_by_sign(s_p, '0');
-	if (s_p->flags[i] == '-')
-	{
-		if (precision(f) > ft_strlen(st) && s_p->bp == 0)
-		{
-			if (precision(f) > width(f))
-				s_p->leng_p += fill_by_zero(precision(f) - ft_strlen(st));
-			return (1);
-		}
-		if (width(f) > ft_strlen(st))
-		{
-			if (s_p->flags[i + 1] == ' ')
-				fill_by_sign(s_p, ' ');
-			s_p->leng_p += with_minus_sign(f, st, check_flags(f), 0);
-			s_p->bp = 20;
 		}
 	}
 	return (0);

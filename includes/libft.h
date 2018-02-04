@@ -137,7 +137,7 @@ int					minus_and_plus_flags(char *s);
 int					check_dot_full(char *s);
 int					double_f1(t_printf_s *s_p, char *f, char *st);
 int					double_f2(t_printf_s *s_p, char *st, int i);
-int					double_f3_0(t_printf_s *s_p, char *st, int i, char *f);
+int					double_flags(t_printf_s *s_p, char *st, int i, char *f);
 int					double_f3(t_printf_s *s_p, char *st, int k, char *f);
 int					double_f4(t_printf_s *s_p, char *st, int k, char *f);
 int					double_f5(t_printf_s *s_p, char *st, int k, char *f);
