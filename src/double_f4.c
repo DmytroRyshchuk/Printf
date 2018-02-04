@@ -28,7 +28,7 @@ static void	double_f_space_zero(t_printf_s *s_p, char *st, int i)
 			fill_by_sign(s_p, '0');
 }
 
-static void	double_f_minus(t_printf_s *s_p, char *st, int i, char *f)
+static int	double_f_minus(t_printf_s *s_p, char *st, int i, char *f)
 {
 	
 	if (s_p->flags[i] == '-')
