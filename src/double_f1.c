@@ -113,6 +113,8 @@ int		double_f3_0(t_printf_s *s_p, char *st, int i, char *f)
 		}
 		if (width(f) > ft_strlen(st))
 		{
+			if (s_p->flags[i + 1] == ' ')
+				fill_by_sign(s_p, ' ');
 			s_p->leng_p += with_minus_sign(f, st, check_flags(f), 0);
 			s_p->bp = 20;
 		}
