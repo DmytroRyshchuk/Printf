@@ -37,6 +37,11 @@ int			ft_wchar(wchar_t c)
 {
 	if (c > 255 && MB_CUR_MAX == 1)
 		return (-1);
+	else if (c <= 127 || (c <= 255 && MB_CUR_MAX == 1))
+	{
+		ft_putchar(c);
+		return (1);
+	}
 	if (c <= 127)
 	{
 		ft_putchar(c);
