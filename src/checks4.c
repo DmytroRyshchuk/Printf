@@ -50,7 +50,7 @@ int		work_with_width(char *s, int i, int num, int decimal)
 	{
 		if (modificator_is_real(s[i]) == 1)
 			return (num);
-		if (s[i] == '%')
+		if (s[i] == '%' && s[i + 1] != 0)
 			return (0);
 		if ((s[i] >= '0' && s[i] <= '9') || s[i] == '.')
 		{
